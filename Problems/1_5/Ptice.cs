@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Problems._1_5
 {
     [TestClass]
-    public class Ptice
+    public class Ptice : BaseTest
     {
         [TestMethod]
         public void PticeTest()
@@ -20,26 +20,47 @@ namespace Problems._1_5
 
             int numberOfQuestions = int.Parse(line1);
 
-            var div = 5 / Adrian.Length;
-            var mod = 5 % Adrian.Length;
-            Console.WriteLine(div + " " + mod);
+            var adrianchars = GetBoyChars(Adrian, numberOfQuestions);
+            var brunochars = GetBoyChars(Bruno, numberOfQuestions);
+            var goranchars = GetBoyChars(Goran, numberOfQuestions);
 
-            string adrianSeq = string.Empty;
+            foreach (char c in adrianchars)
+            {
+                Console.Write(c);
+            }
+            Console.WriteLine();
+            foreach (char c in brunochars)
+            {
+                Console.Write(c);
+            }
+            Console.WriteLine();
+            foreach (char c in goranchars)
+            {
+                Console.Write(c);
+            }
+            Console.WriteLine();
+        }
+
+        private List<char> GetBoyChars(string sequence, int numberOfQuestions)
+        {
+            var div = numberOfQuestions / sequence.Length;
+            var mod = numberOfQuestions % sequence.Length;
+            
+
+            string boySeq = string.Empty;
             for (var i = 0; i < div; i++)
             {
-                adrianSeq += Adrian;
+                boySeq += sequence;
             }
 
-            var adrianChars = adrianSeq.ToCharArray().ToList();
+            var boyChars = boySeq.ToCharArray().ToList();
+            char[] coreChars = sequence.ToCharArray();
             for (var i = 0; i < mod; i++)
             {
-                adrianChars.Add(Adrian.ToCharArray()[i]);
+                boyChars.Add(coreChars[i]);
             }
 
-            foreach (var adrianChar in adrianChars)
-            {
-                Console.Write(adrianChar);
-            }
+            return boyChars;
         }
     }
 }
