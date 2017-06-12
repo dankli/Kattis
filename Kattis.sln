@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1. Consoles", "1. Consoles", "{1A201839-BD7D-411C-B837-959EC124722C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2. Problems", "2. Problems", "{F0710DEF-70A4-408A-8A1F-779AFD079351}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problems", "Problems\Problems.csproj", "{7819CFE2-5645-4574-9E0D-673852BF8E80}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1_4", "1_4", "{77B17CF2-D87F-4FFE-8853-5B609B679E52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aaah", "Aaah\Aaah.csproj", "{411EF2BC-30C8-45E0-AC37-BCCC7A2D1356}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7819CFE2-5645-4574-9E0D-673852BF8E80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7819CFE2-5645-4574-9E0D-673852BF8E80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7819CFE2-5645-4574-9E0D-673852BF8E80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7819CFE2-5645-4574-9E0D-673852BF8E80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{411EF2BC-30C8-45E0-AC37-BCCC7A2D1356}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{411EF2BC-30C8-45E0-AC37-BCCC7A2D1356}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{411EF2BC-30C8-45E0-AC37-BCCC7A2D1356}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{411EF2BC-30C8-45E0-AC37-BCCC7A2D1356}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7819CFE2-5645-4574-9E0D-673852BF8E80} = {F0710DEF-70A4-408A-8A1F-779AFD079351}
+		{77B17CF2-D87F-4FFE-8853-5B609B679E52} = {1A201839-BD7D-411C-B837-959EC124722C}
+		{411EF2BC-30C8-45E0-AC37-BCCC7A2D1356} = {77B17CF2-D87F-4FFE-8853-5B609B679E52}
+	EndGlobalSection
+EndGlobal
