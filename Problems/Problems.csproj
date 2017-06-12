@@ -48,8 +48,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="1_2\FizzBuzz.cs" />
+    <Compile Include="1_5\Ptice.cs" />
     <Compile Include="Aaah.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="BaseTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
