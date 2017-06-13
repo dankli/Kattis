@@ -1,19 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Threading.Tasks;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace RunnerConsole
+namespace Problems._6_0
 {
-    class Program
+    [TestClass]
+    public class ClosestPair : BaseTest
     {
-        static void Main()
+        private List<string> lines;
+
+        protected override void BeforeTest()
         {
+            this.lines = new List<string>
+            {
+                "2",
+                "1.12 0",
+                "0 0.51",
+                "3",
+                "158 12",
+                "123 15",
+                "1859 -1489",
+                "3",
+                "21.12 -884.2",
+                "18.18 43.34",
+                "21.12 -884.2",
+                "0"
+            };
+        }
+
+
+        [TestMethod]
+        public void Run()
+        {
+            BeforeTest();
             TestCase testCase = null;
-            string line;
-            while ((line = Console.ReadLine()) != null)
+            List<Task> tasks = new List<Task>();
+            foreach (var line in lines)
             {
                 string[] parts = line.Split(' ');
-
+                
                 if (parts.Length == 1)
                 {
                     if (parts[0] == "0")
@@ -54,14 +81,13 @@ namespace RunnerConsole
             {
                 for (var j = i + 1; j < testCase.Points.Count; j++)
                 {
-                    decimal distance = Convert.ToDecimal(Math.Sqrt(Math.Pow(testCase.Points[i].X - testCase.Points[j].X, 2) + Math.Pow(testCase.Points[i].Y - testCase.Points[j].Y, 2)));
+                    double distance = Math.Sqrt(Math.Pow(testCase.Points[i].X - testCase.Points[j].X, 2) + Math.Pow(testCase.Points[i].Y - testCase.Points[j].Y, 2));
                     if (testCase.Shortest == null)
                     {
-                        testCase.Shortest = new Tuple<decimal, Point, Point>(distance, testCase.Points[i], testCase.Points[j]);
-                    }
-                    else if (testCase.Shortest.Item1 > distance)
+                        testCase.Shortest = new Tuple<double, Point, Point>(distance, testCase.Points[i], testCase.Points[j]);
+                    }else if (testCase.Shortest.Item1 > distance)
                     {
-                        testCase.Shortest = new Tuple<decimal, Point, Point>(distance, testCase.Points[i], testCase.Points[j]);
+                        testCase.Shortest = new Tuple<double, Point, Point>(distance, testCase.Points[i], testCase.Points[j]);
                     }
                 }
             }
@@ -72,7 +98,7 @@ namespace RunnerConsole
             public int NumberOfValues { get; set; }
             public List<Point> Points { get; set; } = new List<Point>();
 
-            public Tuple<decimal, Point, Point> Shortest { get; set; }
+            public Tuple<double, Point, Point> Shortest { get; set; }
         }
 
         private class Point
