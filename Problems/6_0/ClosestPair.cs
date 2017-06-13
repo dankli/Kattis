@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Problems._6_0
@@ -35,6 +36,7 @@ namespace Problems._6_0
         {
             BeforeTest();
             TestCase testCase = null;
+            List<Task> tasks = new List<Task>();
             foreach (var line in lines)
             {
                 string[] parts = line.Split(' ');
@@ -79,13 +81,13 @@ namespace Problems._6_0
             {
                 for (var j = i + 1; j < testCase.Points.Count; j++)
                 {
-                    decimal distance = Convert.ToDecimal(Math.Sqrt(Math.Pow(testCase.Points[i].X - testCase.Points[j].X, 2) + Math.Pow(testCase.Points[i].Y - testCase.Points[j].Y, 2)));
+                    double distance = Math.Sqrt(Math.Pow(testCase.Points[i].X - testCase.Points[j].X, 2) + Math.Pow(testCase.Points[i].Y - testCase.Points[j].Y, 2));
                     if (testCase.Shortest == null)
                     {
-                        testCase.Shortest = new Tuple<decimal, Point, Point>(distance, testCase.Points[i], testCase.Points[j]);
+                        testCase.Shortest = new Tuple<double, Point, Point>(distance, testCase.Points[i], testCase.Points[j]);
                     }else if (testCase.Shortest.Item1 > distance)
                     {
-                        testCase.Shortest = new Tuple<decimal, Point, Point>(distance, testCase.Points[i], testCase.Points[j]);
+                        testCase.Shortest = new Tuple<double, Point, Point>(distance, testCase.Points[i], testCase.Points[j]);
                     }
                 }
             }
@@ -96,7 +98,7 @@ namespace Problems._6_0
             public int NumberOfValues { get; set; }
             public List<Point> Points { get; set; } = new List<Point>();
 
-            public Tuple<decimal, Point, Point> Shortest { get; set; }
+            public Tuple<double, Point, Point> Shortest { get; set; }
         }
 
         private class Point
