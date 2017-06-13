@@ -8,6 +8,7 @@ namespace Problems
     public abstract class BaseTest
     {
         private Stopwatch timer;
+
         [TestInitialize]
         public void Start()
         {
@@ -21,5 +22,8 @@ namespace Problems
 
             Console.WriteLine("Took: " + timer.Elapsed);
         }
+
+        protected virtual void BeforeTest() { }
+        protected virtual void AfterTest() { }
     }
 }
