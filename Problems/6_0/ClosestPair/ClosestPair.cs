@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.IO;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Problems._6_0
+namespace Problems._6_0.ClosestPair
 {
     [TestClass]
-    public class ClosestPair : BaseTest
+    public partial class ClosestPair : BaseTest
     {
         private List<string> lines;
 
@@ -30,6 +31,48 @@ namespace Problems._6_0
             };
         }
 
+        [TestMethod]
+        public void RunPlanarCase()
+        {
+            TestCase testCase = null;
+            FileInfo file = new FileInfo("TestCase" + 100 + ".txt");
+            using (StreamReader reader = new StreamReader(file.OpenRead()))
+            {
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (line == "0")
+                    {
+                        Tuple<double, Point, Point> result = PlanarCase.Run(testCase.Points);
+                        Console.WriteLine($"{result.Item1} - {result.Item2.X} {result.Item2.Y} {result.Item3.X} {result.Item3.Y}");
+                        break;
+                    }
+
+                    string[] parts = line.Split(' ');
+                    if (parts.Length == 1)
+                    {
+                        if (testCase == null)
+                        {
+                            testCase = new TestCase();
+                        }
+                        else
+                        {
+                            Tuple<double, Point, Point> result = PlanarCase.Run(testCase.Points);
+                            Console.WriteLine($"{result.Item1} - {result.Item2.X} {result.Item2.Y} {result.Item3.X} {result.Item3.Y}");
+                            testCase = new TestCase();
+                        }
+                    }
+                    else
+                    {
+                        float x = float.Parse(parts[0], CultureInfo.InvariantCulture.NumberFormat);
+                        float y = float.Parse(parts[1], CultureInfo.InvariantCulture.NumberFormat);
+                        Point point = new Point(x, y);
+                        testCase.Points.Add(point);
+                    }
+                }
+            }
+
+        }
 
         [TestMethod]
         public void Run()
@@ -93,23 +136,13 @@ namespace Problems._6_0
             }
         }
 
-        private class TestCase
+        [TestMethod]
+        public void Divide()
         {
-            public int NumberOfValues { get; set; }
-            public List<Point> Points { get; set; } = new List<Point>();
+            int n = 9;
 
-            public Tuple<double, Point, Point> Shortest { get; set; }
-        }
-
-        private class Point
-        {
-            public Point(float x, float y)
-            {
-                X = x;
-                Y = y;
-            }
-            public float X { get; set; }
-            public float Y { get; set; }
+            int d = n / 2;
+            Console.WriteLine(d);
         }
     }
 }

@@ -52,7 +52,12 @@
     <Compile Include="1_2\FizzBuzz.cs" />
     <Compile Include="1_5\Ptice.cs" />
     <Compile Include="3_0\Lektira.cs" />
-    <Compile Include="6_0\ClosestPair.cs" />
+    <Compile Include="6_0\ClosestPair\BruteForce.cs" />
+    <Compile Include="6_0\ClosestPair\ClosestPair.cs" />
+    <Compile Include="6_0\ClosestPair\GenerateTestCase.cs" />
+    <Compile Include="6_0\ClosestPair\PlanarCase.cs" />
+    <Compile Include="6_0\ClosestPair\Point.cs" />
+    <Compile Include="6_0\ClosestPair\TestCase.cs" />
     <Compile Include="Aaah.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BaseTest.cs" />
@@ -60,6 +65,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
